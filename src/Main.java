@@ -8,3 +8,12 @@ public class Main {
         myLinkedList.add(10);
         myLinkedList.add(5);
         myLinkedList.add(9);
+        myLinkedList.add(4);
+        myLinkedList.add(6);
+        myLinkedList.add(1);
+        myLinkedList.sort();
+        System.out.println();
+        myLinkedList.printList();
+
+    }
+}
