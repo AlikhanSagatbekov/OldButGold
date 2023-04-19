@@ -16,11 +16,18 @@ public class MyLikedList<E extends Comparable<E>> implements MyList{
     private Node tail;
     @Override
     public int size() {
-        return 0;
+        return size;
     }
 
     @Override
     public boolean contains(Object o) {
+        Node currentNode = this.head;
+        while(currentNode != null){ // the logic of traversing the linked list
+            if(currentNode.data.equals((E)o)){
+                return true;
+            }
+            currentNode = currentNode.next;
+        }
         return false;
     }
 
