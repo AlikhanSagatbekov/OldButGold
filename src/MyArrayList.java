@@ -57,10 +57,15 @@ public class MyArrayList<T> implements MyList {
         }
         return false;
     }
-
+    private void validIndex(int index){
+        if(index >= size || index < 0){
+            System.out.println("Error, No such element in the array");
+            throw new IndexOutOfBoundsException();
+        }
+    }
     @Override
     public Object remove(int index) {
-        return null;
+
     }
 
     @Override
