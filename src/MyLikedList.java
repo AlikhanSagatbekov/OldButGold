@@ -131,7 +131,8 @@ public class MyLikedList<E extends Comparable<E>> implements MyList{
 
     @Override
     public void clear() {
-
+        this.head = new Node<>();
+        this.size = 0;
     }
 
     @Override
