@@ -1,4 +1,19 @@
-public class MyLikedList<T> implements MyList{
+public class MyLikedList<E extends Comparable<E>> implements MyList{
+    private int size = 0;
+    private class Node<E>{
+
+        private E data;
+        Node<E> next;
+        Node<E> previous;
+        public Node(E data){
+            this.data = data;
+        }
+        public Node(){
+
+        }
+    }
+    private Node head;
+    private Node tail;
     @Override
     public int size() {
         return 0;
