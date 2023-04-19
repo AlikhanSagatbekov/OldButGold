@@ -106,7 +106,16 @@ public class MyArrayList<T> implements MyList {
 
     @Override
     public int lastIndexOf(Object o) {
-        return 0;
+        int desiredIndex = -1;
+        for(int i = 0; i < size; i++){
+            if(arr[i].equals(o)){
+                desiredIndex = i;
+            }
+        }
+        if(desiredIndex == -1){
+            System.out.println("Error, No such element in the array");
+        }
+        return desiredIndex;
     }
 
     @Override
