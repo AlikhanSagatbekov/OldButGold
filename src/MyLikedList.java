@@ -81,7 +81,29 @@ public class MyLikedList<E extends Comparable<E>> implements MyList{
 
     @Override
     public boolean remove(Object item) {
-        return false;
+        Node currentNode = this.head;
+        Node previousNode = new Node();
+        if(currentNode != null && currentNode.data.equals((E)item)){
+            this.head = currentNode.next;
+            size--;
+            return true;
+        }
+        while(currentNode != null){//traversing through the List
+            if(currentNode.data.equals((E)item)){
+                System.out.println("Starting...");
+                break;
+            }
+            previousNode = currentNode;
+            currentNode = currentNode.next;
+
+        }
+        if (currentNode == null){
+            return false;
+        }
+
+        previousNode.next = currentNode.next;
+        size--;
+        return true;
     }
 
     @Override
