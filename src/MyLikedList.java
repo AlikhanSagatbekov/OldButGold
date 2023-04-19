@@ -1,19 +1,24 @@
-public class MyLikedList<E extends Comparable<E>> implements MyList{
+public class MyLikedList<E extends Comparable<E>> implements MyList {
     private int size = 0;
-    private class Node<E>{
+
+    private class Node<E> {
 
         private E data;
         Node<E> next;
         Node<E> previous;
-        public Node(E data){
+
+        public Node(E data) {
             this.data = data;
         }
-        public Node(){
+
+        public Node() {
 
         }
     }
+
     private Node head;
     private Node tail;
+
     @Override
     public int size() {
         return size;
@@ -22,8 +27,8 @@ public class MyLikedList<E extends Comparable<E>> implements MyList{
     @Override
     public boolean contains(Object o) {
         Node currentNode = this.head;
-        while(currentNode != null){ // the logic of traversing the linked list
-            if(currentNode.data.equals((E)o)){
+        while (currentNode != null) { // the logic of traversing the linked list
+            if (currentNode.data.equals((E) o)) {
                 return true;
             }
             currentNode = currentNode.next;
@@ -33,15 +38,15 @@ public class MyLikedList<E extends Comparable<E>> implements MyList{
 
     @Override
     public void add(Object item) {
-        Node newNode = new Node<>((E)item);
-        if(this.head == null){
+        Node newNode = new Node<>((E) item);
+        if (this.head == null) {
             this.head = newNode;
             this.tail = newNode;
             size++;
             return;
         }
         Node currentNode = this.head;
-        while(currentNode.next != null){
+        while (currentNode.next != null) {
             currentNode = currentNode.next;
         }
         currentNode.next = newNode;
@@ -55,18 +60,18 @@ public class MyLikedList<E extends Comparable<E>> implements MyList{
         Node currentNode = this.head;
         Node newNode = new Node<>((E) item);
         int currentIndex = 0;
-        if(index == 0){
+        if (index == 0) {
             Node temp = this.head;
             this.head = newNode;
             this.head.next = temp;
             return;
-        }else if(index >= size){
-            add((E)item);
+        } else if (index >= size) {
+            add((E) item);
             return;
         }
 
-        while(currentNode != null){
-            if(currentIndex == index){
+        while (currentNode != null) {
+            if (currentIndex == index) {
                 currentNode.previous.next = newNode;
                 newNode.next = currentNode;
                 size++;
@@ -83,13 +88,13 @@ public class MyLikedList<E extends Comparable<E>> implements MyList{
     public boolean remove(Object item) {
         Node currentNode = this.head;
         Node previousNode = new Node();
-        if(currentNode != null && currentNode.data.equals((E)item)){
+        if (currentNode != null && currentNode.data.equals((E) item)) {
             this.head = currentNode.next;
             size--;
             return true;
         }
-        while(currentNode != null){//traversing through the List
-            if(currentNode.data.equals((E)item)){
+        while (currentNode != null) {//traversing through the List
+            if (currentNode.data.equals((E) item)) {
                 System.out.println("Starting...");
                 break;
             }
@@ -97,7 +102,7 @@ public class MyLikedList<E extends Comparable<E>> implements MyList{
             currentNode = currentNode.next;
 
         }
-        if (currentNode == null){
+        if (currentNode == null) {
             return false;
         }
 
@@ -111,12 +116,12 @@ public class MyLikedList<E extends Comparable<E>> implements MyList{
         int currentIndex = 0;
         Node currentNode = this.head;
         Node previousNode = this.head;
-        if(index == 0){
+        if (index == 0) {
             this.head = currentNode.next;
             return currentNode;
         }
-        while(currentNode != null){
-            if(index == currentIndex){
+        while (currentNode != null) {
+            if (index == currentIndex) {
                 previousNode.next = currentNode.next;
                 size--;
                 return currentNode.data;
@@ -139,8 +144,8 @@ public class MyLikedList<E extends Comparable<E>> implements MyList{
     public Object get(int index) {
         int currentIndex = 0;
         Node currentNode = this.head;
-        while(currentNode != null){
-            if(index == currentIndex){
+        while (currentNode != null) {
+            if (index == currentIndex) {
                 return currentNode.data;
             }
             currentIndex++;
@@ -153,8 +158,8 @@ public class MyLikedList<E extends Comparable<E>> implements MyList{
     public int indexOf(Object o) {
         int index = 0;
         Node currentNode = this.head;
-        while(currentNode != null) {
-            if(currentNode.data.equals((E) o)){
+        while (currentNode != null) {
+            if (currentNode.data.equals((E) o)) {
                 return index;
             }
             index++;
@@ -168,8 +173,8 @@ public class MyLikedList<E extends Comparable<E>> implements MyList{
         int index = 0;
         int desiredIndex = -1;
         Node currentNode = this.head;
-        while(currentNode != null) {
-            if(currentNode.data.equals((E) o)){
+        while (currentNode != null) {
+            if (currentNode.data.equals((E) o)) {
                 desiredIndex = index;
             }
             index++;
@@ -180,6 +185,24 @@ public class MyLikedList<E extends Comparable<E>> implements MyList{
 
     @Override
     public void sort() {
+        int n = 0;
+        Node currentNode = this.head;
+        while (currentNode != null) {
+            n++;
+            currentNode = currentNode.next;
+        }
+        for (int i = 0; i < n; i++) {
+            currentNode = this.head;
+            while (currentNode.next != null) {
+                E data1 = (E) currentNode.data;
+                E data2 = (E) currentNode.next.data;
 
+                if (data1.compareTo(data2) > 0) {
+                    currentNode.next.data = data1;
+                    currentNode.data = data2;
+                }
+                currentNode = currentNode.next;
+            }
+        }
     }
 }
