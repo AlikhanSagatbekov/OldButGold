@@ -22,7 +22,10 @@ public class MyArrayList<T> implements MyList {
 
     @Override
     public void add(Object item) {
-
+        if(arr.length == size){
+            increaseBuffer();
+        }
+        arr[size++] = (T)item;
     }
     private void increaseBuffer(){
         T[] newArr = (T[]) new Object[arr.length*2];
@@ -34,6 +37,7 @@ public class MyArrayList<T> implements MyList {
 
     @Override
     public void add(Object item, int index) {
+
 
     }
 
