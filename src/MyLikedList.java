@@ -205,4 +205,12 @@ public class MyLikedList<E extends Comparable<E>> implements MyList {
             }
         }
     }
+    public void printList(){
+        Node currentNode = this.head;
+        while(currentNode != null){
+            System.out.print(currentNode.data + " ");
+            currentNode = currentNode.next;
+        }
+        System.out.println();
+    }
 }
