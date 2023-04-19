@@ -213,4 +213,11 @@ public class MyLikedList<E extends Comparable<E>> implements MyList {
         }
         System.out.println();
     }
+    public void printInReverse(){
+        Node currentNode = this.tail;
+        while(currentNode != null){
+            System.out.println(currentNode.data + " ");
+            currentNode = currentNode.previous;
+        }
+    }
 }
