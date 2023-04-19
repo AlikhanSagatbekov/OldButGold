@@ -108,6 +108,24 @@ public class MyLikedList<E extends Comparable<E>> implements MyList{
 
     @Override
     public Object remove(int index) {
+        int currentIndex = 0;
+        Node currentNode = this.head;
+        Node previousNode = this.head;
+        if(index == 0){
+            this.head = currentNode.next;
+            return currentNode;
+        }
+        while(currentNode != null){
+            if(index == currentIndex){
+                previousNode.next = currentNode.next;
+                size--;
+                return currentNode.data;
+            }
+            currentIndex++;
+            previousNode = currentNode;
+            currentNode = currentNode.next;
+
+        }
         return null;
     }
 
