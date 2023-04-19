@@ -1,4 +1,10 @@
 public class MyArrayList<T> implements MyList {
+    private int size = 0;
+    private T[] arr;
+    public MyArrayList() {
+        this.arr = (T[]) new Comparable[10];
+        this.size = 0;
+    }
     @Override
     public int size() {
         return 0;
