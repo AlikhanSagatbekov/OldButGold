@@ -24,6 +24,13 @@ public class MyArrayList<T> implements MyList {
     public void add(Object item) {
 
     }
+    private void increaseBuffer(){
+        T[] newArr = (T[]) new Object[arr.length*2];
+        for(int i = 0; i < size; i++){
+            newArr[i] = arr[i];
+        }
+        arr = newArr;
+    }
 
     @Override
     public void add(Object item, int index) {
