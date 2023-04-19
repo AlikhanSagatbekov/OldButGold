@@ -33,7 +33,21 @@ public class MyLikedList<E extends Comparable<E>> implements MyList{
 
     @Override
     public void add(Object item) {
-
+        Node newNode = new Node<>((E)item);
+        if(this.head == null){
+            this.head = newNode;
+            this.tail = newNode;
+            size++;
+            return;
+        }
+        Node currentNode = this.head;
+        while(currentNode.next != null){
+            currentNode = currentNode.next;
+        }
+        currentNode.next = newNode;
+        newNode.previous = currentNode; // identifying the precious node
+        this.tail = newNode;
+        size++; // increasing the size
     }
 
     @Override
