@@ -52,7 +52,31 @@ public class MyLikedList<E extends Comparable<E>> implements MyList{
 
     @Override
     public void add(Object item, int index) {
+        Node currentNode = this.head;
+        Node newNode = new Node<>((E) item);
+        int currentIndex = 0;
+        if(index == 0){
+            Node temp = this.head;
+            this.head = newNode;
+            this.head.next = temp;
+            return;
+        }else if(index >= size){
+            add((E)item);
+            return;
+        }
 
+        while(currentNode != null){
+            if(currentIndex == index){
+                currentNode.previous.next = newNode;
+                newNode.next = currentNode;
+                size++;
+                return;
+            }
+            currentIndex++;
+            currentNode = currentNode.next;
+        }
+
+        System.out.println("Error of adding the element");
     }
 
     @Override
