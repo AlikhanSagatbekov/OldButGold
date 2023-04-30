@@ -37,7 +37,7 @@ public class MyLinkedList <E extends Comparable<E>> implements MyList{
     }
 
     @Override
-    public void add(Object item) { // adding the element in the end of the linked list
+    public void add(Object item) {
         Node newNode = new Node<>((E)item);
         if(this.head == null){
             this.head = newNode;
@@ -50,13 +50,13 @@ public class MyLinkedList <E extends Comparable<E>> implements MyList{
             currentNode = currentNode.next;
         }
         currentNode.next = newNode;
-        newNode.previous = currentNode; // identifying the precious node
+        newNode.previous = currentNode;
         this.tail = newNode;
         size++; // increasing the size
     }
 
     @Override
-    public void add(Object item, int index) { // a method to add the element by index
+    public void add(Object item, int index) {
         Node currentNode = this.head;
         Node newNode = new Node<>((E) item);
         int currentIndex = 0;
@@ -85,7 +85,7 @@ public class MyLinkedList <E extends Comparable<E>> implements MyList{
     }
 
     @Override
-    public boolean remove(Object item) { // removing the first appearance of the object
+    public boolean remove(Object item) {
         Node currentNode = this.head;
         Node previousNode = new Node();
         if(currentNode != null && currentNode.data.equals((E)item)){
@@ -93,7 +93,7 @@ public class MyLinkedList <E extends Comparable<E>> implements MyList{
             size--;
             return true;
         }
-        while(currentNode != null){//traversing through the List
+        while(currentNode != null){
             if(currentNode.data.equals((E)item)){
                 System.out.println("Starting...");
                 break;
@@ -112,7 +112,7 @@ public class MyLinkedList <E extends Comparable<E>> implements MyList{
     }
 
     @Override
-    public Object remove(int index) { // Removing the item by the index
+    public Object remove(int index) {
         int currentIndex = 0;
         Node currentNode = this.head;
         Node previousNode = this.head;
@@ -135,13 +135,13 @@ public class MyLinkedList <E extends Comparable<E>> implements MyList{
     }
 
     @Override
-    public void clear() { // Deleting the linked list
+    public void clear() {
         this.head = new Node<>();
-        this.size = 0; // the size should be zero now since there no elements
+        this.size = 0;
     }
 
     @Override
-    public Object get(int index) {// getting the element by index
+    public Object get(int index) {
         int currentIndex = 0;
         Node currentNode = this.head;
         while(currentNode != null){
@@ -155,7 +155,7 @@ public class MyLinkedList <E extends Comparable<E>> implements MyList{
     }
 
     @Override
-    public int indexOf(Object o) {// returns the index of the first appearance of the object
+    public int indexOf(Object o) {
         int index = 0;
         Node currentNode = this.head;
         while(currentNode != null) {
@@ -169,7 +169,7 @@ public class MyLinkedList <E extends Comparable<E>> implements MyList{
     }
 
     @Override
-    public int lastIndexOf(Object o) { // Returning the last instance of the object in the List
+    public int lastIndexOf(Object o) {
         int index = 0;
         int desiredIndex = -1;
         Node currentNode = this.head;
@@ -184,7 +184,7 @@ public class MyLinkedList <E extends Comparable<E>> implements MyList{
     }
 
     @Override
-    public void sort() { // sorting the linked list using the bubble sort and changing the data itself
+    public void sort() {
         int n = 0; // double-checking the size of the array
         Node currentNode = this.head;
         while(currentNode != null){
@@ -222,9 +222,9 @@ public class MyLinkedList <E extends Comparable<E>> implements MyList{
         return head;
     }
 
-    public void printList(){ // Printing the Linked list in order
-        Node currentNode = this.head; // the temporary node to access all the nodes
-        while(currentNode != null){ // looping through all the values
+    public void printList(){
+        Node currentNode = this.head;
+        while(currentNode != null){
             System.out.print(currentNode.data + " ");
             currentNode = currentNode.next;
         }
@@ -244,7 +244,7 @@ public class MyLinkedList <E extends Comparable<E>> implements MyList{
         this.tail = list.tail;
     }
 
-    public E addFirst(Object item){ // adding a new method that will be useful for stack
+    public E addFirst(Object item){
         if(size == 0 || this.head ==null){
             Node newNode = new Node<>();
             head = newNode;
