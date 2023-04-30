@@ -35,4 +35,8 @@ public class MyArrayListQueue <T extends Comparable<T>> {
             return false;
         }
     }
+    public int size(){
+        return queue.size();
+    }
+
 }
