@@ -141,4 +141,10 @@ public class MyArrayList<T extends Comparable<T>> implements MyList {
             System.out.print(arr[i] +  " ");
         }
     }
+    @Override
+    public void addAll(MyList o) {
+        for(int i = 0; i < o.size(); i++){
+            add(o.get(i));
+        }
+    }
 }
