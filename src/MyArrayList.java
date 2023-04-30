@@ -5,7 +5,7 @@ import java.util.Collections;
 
 public class MyArrayList <T extends Comparable<T>> implements MyList{
 
-    private int size = 0; // this variable must be private by security means.
+    private int size = 0;
     private T[] arr;
 
     public MyArrayList() {
@@ -14,12 +14,12 @@ public class MyArrayList <T extends Comparable<T>> implements MyList{
     }
 
 
-    @Override// It returns the size of the array
+    @Override
     public int size() {
         return size;
     }
 
-    @Override// It checks if a certain object is in the arrayList
+    @Override
     public boolean contains(Object o) {
 
         for(int i = 0; i < size; i++){
@@ -30,7 +30,7 @@ public class MyArrayList <T extends Comparable<T>> implements MyList{
         return false;
     }
 
-    @Override // adding new item
+    @Override
     public void add(Object item) {
         if(arr.length == size){
             increaseBuffer();
@@ -38,7 +38,7 @@ public class MyArrayList <T extends Comparable<T>> implements MyList{
         arr[size++] = (T)item;
     }
 
-    private void increaseBuffer(){ // It is a function that increases our array
+    private void increaseBuffer(){
         T[] newArr = (T[]) new Object[arr.length*2];
         for(int i = 0; i < size; i++){
             newArr[i] = arr[i];
@@ -47,7 +47,7 @@ public class MyArrayList <T extends Comparable<T>> implements MyList{
     }
 
     @Override
-    public void add(Object item, int index) { // adding item to a certain index
+    public void add(Object item, int index) {
         if(arr.length == size-1){
             increaseBuffer();
         }

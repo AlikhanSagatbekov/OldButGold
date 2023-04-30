@@ -1,19 +1,19 @@
-import org.w3c.dom.Node;
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
+        MyLinkedListQueue q = new MyLinkedListQueue();
+        q.enqueue(1);
+        q.enqueue(2);
+        q.enqueue(5);
+        q.enqueue(9);
+        q.dequeue();
+        q.dequeue();
+        q.dequeue();
+        q.dequeue();
+        q.dequeue();
 
-        MyLinkedList myLinkedList = new MyLinkedList();
-
-        myLinkedList.add(10);
-        myLinkedList.add(5);
-        myLinkedList.add(9);
-        myLinkedList.add(4);
-        myLinkedList.add(6);
-        myLinkedList.add(1);
-        myLinkedList.sort();
-        System.out.println();
-        myLinkedList.printList();
+        q.printQueue();
 
     }
 }
