@@ -24,10 +24,10 @@ public class MyLinkedList <E extends Comparable<E>> implements MyList{
         return size;
     }
 
-    @Override // finding the certain element in the linked list
+    @Override
     public boolean contains(Object o) {
         Node currentNode = this.head;
-        while(currentNode != null){ // the logic of traversing the linked list
+        while(currentNode != null){
             if(currentNode.data.equals((E)o)){
                 return true;
             }
