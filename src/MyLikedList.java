@@ -275,5 +275,12 @@ public class MyLinkedList <E extends Comparable<E>> implements MyList {
         this.head = temp;
         return data;
     }
+    public E getFirst(){
+        if(this.head != null && size > 0){
+            return (E) this.head.data;
+        }else{
+            throw new EmptyStackException();
+        }
 
+    }
 }
