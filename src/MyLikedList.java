@@ -241,4 +241,8 @@ public class MyLinkedList <E extends Comparable<E>> implements MyList {
             currentNode = currentNode.previous;
         }
     }
+    public void SelfAddAll(MyLinkedList list){
+        this.tail.next = list.tail;
+        this.tail = list.tail;
+    }
 }
