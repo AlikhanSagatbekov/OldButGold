@@ -245,4 +245,20 @@ public class MyLinkedList <E extends Comparable<E>> implements MyList {
         this.tail.next = list.tail;
         this.tail = list.tail;
     }
+    public E addFirst(Object item){ // adding a new method that will be useful for stack
+        if(size == 0 || this.head ==null){
+            Node newNode = new Node<>();
+            head = newNode;
+            this.head.data = (E)item;
+            size++;
+            return (E)item;
+        }else{
+            Node temp = new Node<>(item);
+            Node oldTemp = this.head;
+            temp.next = oldTemp;
+            this.head = temp;
+            size++;
+            return (E)item;
+        }
+    }
 }
