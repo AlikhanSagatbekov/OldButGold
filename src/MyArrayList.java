@@ -70,10 +70,10 @@ public class MyArrayList <T extends Comparable<T>> implements MyList{
         return false;
     }
 
-    @Override// this method shifts all the elements by one and the element to delete is overwritten
+    @Override
     public Object remove(int index) {
         validIndex(index);
-        if(size == 1){ // found a bug when there is only one element
+        if(size == 1){
             T temp = arr[0];
             size = 0;
             clear();
@@ -88,7 +88,7 @@ public class MyArrayList <T extends Comparable<T>> implements MyList{
     }
 
     @Override
-    public void clear() { // the method to clear entire List
+    public void clear() {
         arr = (T[]) new Comparable[10];
         size = 0;
     }
