@@ -261,4 +261,11 @@ public class MyLinkedList <E extends Comparable<E>> implements MyList {
             return (E)item;
         }
     }
+    public boolean isEmpty(){
+        if(size == 0 || this.head == null){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
