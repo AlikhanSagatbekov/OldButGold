@@ -185,7 +185,7 @@ public class MyLinkedList <E extends Comparable<E>> implements MyList{
 
     @Override
     public void sort() {
-        int n = 0; // double-checking the size of the array
+        int n = 0;
         Node currentNode = this.head;
         while(currentNode != null){
             n++;
