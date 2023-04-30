@@ -28,4 +28,11 @@ public class MyArrayListQueue <T extends Comparable<T>> {
     public T peek(){
         return (T) queue.get(0);
     }
+    public boolean isEmpty(){
+        if(queue.size() == 0 || queue.get(0) == null){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
