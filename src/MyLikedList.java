@@ -268,4 +268,12 @@ public class MyLinkedList <E extends Comparable<E>> implements MyList {
             return false;
         }
     }
+    public E removeFirst(){
+        Node temp = new Node<>();
+        E data = (E) this.head.data;
+        temp = this.head.next;
+        this.head = temp;
+        return data;
+    }
+
 }
