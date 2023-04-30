@@ -147,4 +147,15 @@ public class MyArrayList<T extends Comparable<T>> implements MyList {
             add(o.get(i));
         }
     }
+
+    public T addLast(Object item){
+        if(arr.length <= size){
+            increaseBuffer();
+        }
+        arr[size] = (T)item;
+        T temp = arr[size];
+        size++;
+        return temp;
+    }
+
 }
