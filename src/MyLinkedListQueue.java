@@ -19,4 +19,12 @@ public class MyLinkedListQueue {
         }
         return (E) queue.removeFirst();
     }
+    public boolean isEmpty(){
+        if(queue.size() == 0 || queue.get(0) == null){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 }
