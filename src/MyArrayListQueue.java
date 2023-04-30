@@ -1,10 +1,11 @@
 import java.util.NoSuchElementException;
-public class MyArrayListQueue <T extends Comparable<T>> {
+public class MyArrayListQueue <T extends Comparable<T>>{
     MyArrayList queue;
 
-    public MyArrayListQueue() {
+    public MyArrayListQueue(){
         queue = new MyArrayList();
     }
+
     public T enqueue(Object item){
         queue.add(item);
         return (T) item;
@@ -21,6 +22,7 @@ public class MyArrayListQueue <T extends Comparable<T>> {
         queue.remove(0);
         return item;
     }
+
     public void clearQueue(){
         queue.clear();
     }
@@ -28,6 +30,7 @@ public class MyArrayListQueue <T extends Comparable<T>> {
     public T peek(){
         return (T) queue.get(0);
     }
+
     public boolean isEmpty(){
         if(queue.size() == 0 || queue.get(0) == null){
             return true;
@@ -35,8 +38,11 @@ public class MyArrayListQueue <T extends Comparable<T>> {
             return false;
         }
     }
+
     public int size(){
         return queue.size();
     }
+
+
 
 }
