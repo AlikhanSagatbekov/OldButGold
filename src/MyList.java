@@ -1,6 +1,6 @@
+import java.util.List;
 
-
-public interface MyList<T> {
+public interface MyList <T>{
     int size();
     boolean contains(Object o);
     void add(T item);
@@ -8,9 +8,10 @@ public interface MyList<T> {
     boolean remove(T item);
     T remove(int index);
     void clear();
-    T get(int index);
+    T get (int index);
     int indexOf(Object o);
     int lastIndexOf(Object o);
     void sort();
-}
+    void addAll(MyList o);
 
+}
