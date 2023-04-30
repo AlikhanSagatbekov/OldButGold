@@ -1,4 +1,7 @@
-public class MyLikedList<E extends Comparable<E>> implements MyList {
+import java.util.EmptyStackException;
+
+public class MyLinkedList <E extends Comparable<E>> implements MyList {
+
     private int size = 0;
 
     private class Node<E> {
@@ -27,7 +30,7 @@ public class MyLikedList<E extends Comparable<E>> implements MyList {
     @Override
     public boolean contains(Object o) {
         Node currentNode = this.head;
-        while (currentNode != null) { // the logic of traversing the linked list
+        while (currentNode != null) {
             if (currentNode.data.equals((E) o)) {
                 return true;
             }
@@ -50,7 +53,7 @@ public class MyLikedList<E extends Comparable<E>> implements MyList {
             currentNode = currentNode.next;
         }
         currentNode.next = newNode;
-        newNode.previous = currentNode; // identifying the precious node
+        newNode.previous = currentNode;
         this.tail = newNode;
         size++; // increasing the size
     }
@@ -93,7 +96,7 @@ public class MyLikedList<E extends Comparable<E>> implements MyList {
             size--;
             return true;
         }
-        while (currentNode != null) {//traversing through the List
+        while (currentNode != null) {
             if (currentNode.data.equals((E) item)) {
                 System.out.println("Starting...");
                 break;
@@ -191,6 +194,7 @@ public class MyLikedList<E extends Comparable<E>> implements MyList {
             n++;
             currentNode = currentNode.next;
         }
+
         for (int i = 0; i < n; i++) {
             currentNode = this.head;
             while (currentNode.next != null) {
@@ -205,17 +209,34 @@ public class MyLikedList<E extends Comparable<E>> implements MyList {
             }
         }
     }
-    public void printList(){
-        Node currentNode = this.head;
-        while(currentNode != null){
+
+    @Override
+    public void addAll(MyList o) {
+        for (int i = 0; i < o.size(); i++) {
+            add(o.get(i));
+        }
+    }
+
+    public Node returnTail() {
+        return tail;
+    }
+
+    public Node returnHead() {
+        return head;
+    }
+
+    public void printList() { // Printing the Linked list in order
+        Node currentNode = this.head; // the temporary node to access all the nodes
+        while (currentNode != null) { // looping through all the values
             System.out.print(currentNode.data + " ");
             currentNode = currentNode.next;
         }
         System.out.println();
     }
-    public void printInReverse(){
+
+    public void printInReverse() {
         Node currentNode = this.tail;
-        while(currentNode != null){
+        while (currentNode != null) {
             System.out.println(currentNode.data + " ");
             currentNode = currentNode.previous;
         }
