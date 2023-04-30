@@ -94,13 +94,13 @@ public class MyArrayList <T extends Comparable<T>> implements MyList{
     }
 
     @Override
-    public Object get(int index) { // returning element at the specified index
+    public Object get(int index) {
         validIndex(index);
         return arr[index];
     }
 
     @Override
-    public int indexOf(Object o) { // it searches for the first appearance of the object
+    public int indexOf(Object o) {
         for(int i = 0; i < size; i++){
             if(arr[i].equals(o)){
                 return i;
@@ -111,7 +111,7 @@ public class MyArrayList <T extends Comparable<T>> implements MyList{
     }
 
     @Override
-    public int lastIndexOf(Object o) { // it searches for the last entry of the object in array
+    public int lastIndexOf(Object o) {
         int desiredIndex = -1;
         for(int i = 0; i < size; i++){
             if(arr[i].equals(o)){
@@ -125,7 +125,7 @@ public class MyArrayList <T extends Comparable<T>> implements MyList{
     }
 
     @Override
-    public void sort() { // sorting the generic type
+    public void sort() {
         for(int i = 0; i < size - 1;i++){
             for (int j = 0; j < size - i - 1; j++){
                 if (arr[j].compareTo(arr[j+1]) > 0){
@@ -144,13 +144,13 @@ public class MyArrayList <T extends Comparable<T>> implements MyList{
         }
     }
 
-    private void validIndex(int index){ // to check if the index is valid
+    private void validIndex(int index){
         if(index < 0){
             System.out.println("Error, No such element in the array");
             throw new IndexOutOfBoundsException();
         }
     }
-    public void printList(){ // adding support method to print all the elements in stdout
+    public void printList(){
         for(int i = 0; i < size; i++){
             System.out.print(arr[i] +  " ");
         }
