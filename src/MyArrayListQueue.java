@@ -13,4 +13,12 @@ public class MyArrayListQueue <T extends Comparable<T>> {
         queue.printList();
         System.out.println();
     }
+    public T dequeue(){
+        if(isEmpty()){
+            throw new RuntimeException("The queue is empty");
+        }
+        T item = (T)queue.get(0);
+        queue.remove(0);
+        return item;
+    }
 }
