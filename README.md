@@ -66,3 +66,28 @@ private int size = 0;
 
 29. chec methods in main.
 
+## Assignment 3
+
+1. i created 4 classes
+
+2. implement methods to class MyArrayListStack 
+
+3. implement methods to class MyLinkedListStack
+
+4. implement methods to class MyArrayListQueue
+
+5. implement methods to class MyLinkedListQueue
+
+6. added methods for MyList
+
+7. added method isEmpty to chec size 
+
+8. added method removeFirs to remove data in head 
+
+9. added method getFirs to get firs data in stack 
+
+10. added method addLast to add object
+
+11. implement needle methods 
+
+12. added method addLast to chec size and increase it and add to end 
