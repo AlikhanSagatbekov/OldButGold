@@ -21,4 +21,11 @@ public class MyArrayListQueue <T extends Comparable<T>> {
         queue.remove(0);
         return item;
     }
+    public void clearQueue(){
+        queue.clear();
+    }
+
+    public T peek(){
+        return (T) queue.get(0);
+    }
 }
