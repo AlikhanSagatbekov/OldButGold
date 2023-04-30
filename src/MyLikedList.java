@@ -281,6 +281,10 @@ public class MyLinkedList <E extends Comparable<E>> implements MyList {
         }else{
             throw new EmptyStackException();
         }
-
     }
+    public E addLast(Object item){
+        add(item);
+        return (E) this.tail.data;
+    }
+
 }
